@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Organizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-icon"></div>
+        <div>
+          <h1>Tab Organizer</h1>
+          <span class="badge enterprise">Enterprise • ZDR</span>
+        </div>
+      </div>
+      <button id="btnOptions" class="icon-button" title="Settings">⚙️</button>
+    </header>
+
+    <!-- Tab Status Card -->
+    <div class="card">
+      <div class="stat-row">
+        <span class="label">Open Window Tabs</span>
+        <span id="tabCountText" class="val">-- / 10</span>
+      </div>
+      <div class="progress-bar-container">
+        <div id="tabProgressBar" class="progress-bar" style="width: 0%;"></div>
+      </div>
+      <div class="status-row">
+        <span class="status-indicator" id="nanoIndicator"></span>
+        <span id="nanoStatusText" class="caption">Checking Gemini Nano...</span>
+      </div>
+    </div>
+
+    <!-- Quick Controls -->
+    <div class="card toggle-card">
+      <div class="toggle-text">
+        <strong>Auto-Organize at 10 Tabs</strong>
+        <p class="caption">Automatically cluster tabs once threshold is reached</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="autoOrganizeToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Results Banner -->
+    <div id="resultBanner" class="result-banner hidden">
+      <span id="resultMessage">Tabs organized!</span>
+    </div>
+
+    <!-- Main Action Button -->
+    <button id="btnOrganize" class="primary-btn">
+      <span class="btn-text">Organize Tabs Now</span>
+      <span class="spinner hidden"></span>
+    </button>
+
+    <!-- Footer Security Note -->
+    <footer class="footer">
+      <span>🔒 Zero Data Retention • 100% On-Device AI</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Organizer Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo-icon"></div>
+        <div>
+          <h1>Intelligent Chrome Tab Organizer</h1>
+          <p class="subtitle">Enterprise Configuration & Security Policies</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Section: Automation Trigger -->
+      <section class="settings-card">
+        <h2>Trigger Thresholds</h2>
+        <div class="form-group">
+          <label for="thresholdInput">Open Tab Trigger Threshold</label>
+          <p class="hint">The number of open tabs in a window that triggers automated grouping.</p>
+          <input type="number" id="thresholdInput" min="3" max="50" value="10">
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="switch">
+            <input type="checkbox" id="autoOrganizeInput" checked>
+            <span class="slider round"></span>
+          </label>
+          <div>
+            <strong>Enable Automated Organization</strong>
+            <p class="hint">When open tabs reach the threshold, automatically group tabs in background.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Privacy & Security Governance -->
+      <section class="settings-card">
+        <h2>Enterprise Privacy & Security Policies</h2>
+
+        <div class="form-group checkbox-group">
+          <label class="switch">
+            <input type="checkbox" id="enablePIIReviewInput" checked>
+            <span class="slider round"></span>
+          </label>
+          <div>
+            <strong>Human-in-the-Loop (HITL) Review Bucket</strong>
+            <p class="hint">Automatically isolate tabs with suspected PII (SSNs, accounts, credit cards) into a dedicated red "Review" tab group instead of passing to AI.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="blocklistInput">Domain Blocklist</label>
+          <p class="hint">Tabs matching these domain patterns will be completely excluded from the AI payload (one domain per line, wildcards supported like <code>*.internal.company.com</code>).</p>
+          <textarea id="blocklistInput" rows="7" placeholder="e.g. hr.internal.company.com&#10;chase.com&#10;*.payroll.com"></textarea>
+        </div>
+      </section>
+
+      <!-- Section: Gemini Nano & Privacy Verification -->
+      <section class="settings-card zdr-card">
+        <h2>Zero Data Retention (ZDR) & Local AI Guarantee</h2>
+        <p>This extension runs 100% on-device utilizing Chrome's built-in Gemini Nano model via the local JavaScript Prompt API (<code>window.ai.languageModel</code>). No tab URLs, page titles, or DOM elements are ever transmitted off this device.</p>
+        <div class="zdr-badges">
+          <span class="pill green">✓ Local Inference Only</span>
+          <span class="pill green">✓ In-Memory ZDR Purge</span>
+          <span class="pill green">✓ Zero External LLM API Cost</span>
+        </div>
+      </section>
+
+      <!-- Action Footer -->
+      <div class="actions">
+        <button id="btnSave" class="btn primary">Save Changes</button>
+        <button id="btnReset" class="btn secondary">Reset to Defaults</button>
+        <span id="saveStatus" class="save-status hidden">Settings saved successfully!</span>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

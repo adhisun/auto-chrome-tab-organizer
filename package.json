@@ -1,0 +1,20 @@
+{
+  "name": "auto-chrome-tab-organizer",
+  "version": "0.1.0",
+  "description": "Enterprise-grade Chrome extension for semantic tab clustering via local Gemini Nano Prompt API with Zero Data Retention.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "manifest-v3",
+    "gemini-nano",
+    "prompt-api",
+    "tab-organizer",
+    "enterprise-ai",
+    "zero-data-retention"
+  ],
+  "author": "Antigravity",
+  "license": "Apache-2.0"
+}
